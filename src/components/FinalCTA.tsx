@@ -7,7 +7,7 @@ export function FinalCTA() {
       <div className="container">
         <h2 id="contato-title">{siteConfig.finalCta.title}</h2>
         <p>{siteConfig.finalCta.description}</p>
-        <WhatsAppButton label={siteConfig.finalCta.action} />
+        <WhatsAppButton label={siteConfig.finalCta.action} origin="final-cta" />
       </div>
     </section>
   )

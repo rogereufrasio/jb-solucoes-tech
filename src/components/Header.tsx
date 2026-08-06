@@ -13,8 +13,10 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <a className="brand" href="#inicio" aria-label={`${siteConfig.brand.name}, voltar ao início`} onClick={closeMenu}>
-          <span className="brand-mark" aria-hidden="true">{siteConfig.brand.shortName}</span>
-          <span className="brand-name">{siteConfig.brand.name}</span>
+          <picture>
+            <source media="(max-width: 23rem)" srcSet={siteConfig.assets.mark} />
+            <img src={siteConfig.assets.logo} alt="" width="240" height="56" />
+          </picture>
         </a>
         <button
           className="menu-button"
@@ -33,7 +35,7 @@ export function Header() {
             ))}
           </ul>
         </nav>
-        <WhatsAppButton label="Falar no WhatsApp" compact />
+        <WhatsAppButton label="Falar no WhatsApp" compact origin="header" />
       </div>
     </header>
   )
