@@ -45,17 +45,24 @@ describe('App foundation', () => {
 
   it('creates contextual WhatsApp links for every service', () => {
     render(<App />)
+    expect(screen.getAllByText('Consultar este serviço')).toHaveLength(siteConfig.services.length)
     siteConfig.services.forEach((service) => {
       const link = screen.getByRole('link', { name: new RegExp(`Consultar ${service.title}`) })
       expect(link).toHaveAttribute('href', expect.stringContaining(encodeURIComponent(service.whatsappMessage)))
     })
   })
 
-  it('builds a diagnostic message and opens WhatsApp without using browser storage', () => {
+  it('renders one diagnostic form, focuses it from the hero CTA, and opens WhatsApp without storage', () => {
     const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null)
     const storageSpy = vi.spyOn(Storage.prototype, 'setItem')
     render(<App />)
-    fireEvent.change(screen.getByLabelText('Tipo de necessidade'), { target: { value: 'Rede ou Wi-Fi' } })
+    expect(screen.getAllByRole('form')).toHaveLength(1)
+    const firstField = screen.getByLabelText('Como podemos ajudar?')
+    fireEvent.click(screen.getAllByRole('link', { name: siteConfig.hero.primaryAction })[0])
+    expect(firstField).toHaveFocus()
+    expect(screen.getByRole('option', { name: 'Redes e Wi-Fi' })).toHaveValue('Rede ou Wi-Fi')
+    expect(screen.getByRole('option', { name: 'Outros assuntos' })).toHaveValue('Outro assunto de tecnologia')
+    fireEvent.change(firstField, { target: { value: 'Rede ou Wi-Fi' } })
     fireEvent.change(screen.getByLabelText('Equipamento ou ambiente'), { target: { value: 'Roteador da sala' } })
     fireEvent.change(screen.getByLabelText(/Descrição do problema/), { target: { value: 'Conexão instável' } })
     fireEvent.click(screen.getByRole('button', { name: siteConfig.diagnostic.submitLabel }))

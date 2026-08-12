@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">JB Soluções</title>
   <rect width="64" height="64" rx="17" fill="#0A2239"/>
   <path d="M18 17h8v21c0 8-4 12-12 12v-8c3 0 4-1 4-4V17Zm13 0h10c8 0 13 3 13 9 0 4-2 6-5 8 4 1 6 4 6 8 0 7-5 10-14 10H31V17Zm8 7v7h2c4 0 5-1 5-4 0-2-2-3-5-3h-2Zm0 14v7h3c3 0 5-1 5-4 0-2-2-3-5-3h-3Z" fill="#fff"/>
   <circle cx="54" cy="12" r="4" fill="#2CB8E8"/>

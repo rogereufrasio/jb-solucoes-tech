@@ -9,11 +9,10 @@ export function Services() {
       <div className="card-grid">
         {siteConfig.services.map((service) => (
           <article className="card" key={service.id}>
-            <span className="service-icon" aria-hidden="true">{service.icon}</span>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
             <ul>{service.examples.map((example) => <li key={example}>{example}</li>)}</ul>
-            <WhatsAppButton label={`Consultar ${service.title}`} message={service.whatsappMessage} origin={`service:${service.id}`} />
+            <WhatsAppButton label="Consultar este serviço" ariaLabel={`Consultar ${service.title}`} message={service.whatsappMessage} origin={`service:${service.id}`} />
           </article>
         ))}
       </div>

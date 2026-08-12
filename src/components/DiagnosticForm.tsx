@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { createWhatsAppUrl, siteConfig } from '../config/site'
 import { trackConversion } from '../lib/analytics'
-import { Section } from './Section'
 
 export function DiagnosticForm() {
   const [need, setNeed] = useState('')
@@ -19,7 +18,7 @@ export function DiagnosticForm() {
 
     setError('')
     const lines = [
-      'Olá! Encontrei a JB Soluções Tech pelo site e gostaria de solicitar uma avaliação.',
+      'Olá! Encontrei a JB Soluções pelo site e gostaria de solicitar uma avaliação.',
       '',
       `Tipo de necessidade: ${need}`,
       `Equipamento ou ambiente: ${equipment.trim()}`,
@@ -31,32 +30,28 @@ export function DiagnosticForm() {
   }
 
   return (
-    <Section id="diagnostico" eyebrow={content.eyebrow} title={content.title} className="diagnostic-section">
-      <div className="diagnostic-layout">
-        <div>
-          <p className="section-intro">{content.description}</p>
-          <p className="privacy-note"><strong>Importante:</strong> não envie senhas, documentos, dados bancários ou outras informações sensíveis.</p>
+    <aside className="hero-diagnostic" id="diagnostico" aria-labelledby="diagnostic-title">
+      <h2 id="diagnostic-title">Conte o que está acontecendo</h2>
+      <p>Os dados servem apenas para montar a mensagem no WhatsApp e não serão armazenados.</p>
+      <form className="diagnostic-form" onSubmit={handleSubmit} noValidate aria-labelledby="diagnostic-title">
+        <div className="field">
+          <label htmlFor="need">Como podemos ajudar?</label>
+          <select id="need" value={need} onChange={(event) => setNeed(event.target.value)} required aria-describedby={error ? 'diagnostic-error' : undefined}>
+            <option value="">Escolha o assunto</option>
+            {content.needOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}
+          </select>
         </div>
-        <form className="diagnostic-form" onSubmit={handleSubmit} noValidate>
-          <div className="field">
-            <label htmlFor="need">Tipo de necessidade</label>
-            <select id="need" value={need} onChange={(event) => setNeed(event.target.value)} required aria-describedby={error ? 'diagnostic-error' : undefined}>
-              <option value="">Selecione uma opção</option>
-              {content.needOptions.map((option) => <option key={option}>{option}</option>)}
-            </select>
-          </div>
-          <div className="field">
-            <label htmlFor="equipment">Equipamento ou ambiente</label>
-            <input id="equipment" value={equipment} onChange={(event) => setEquipment(event.target.value)} placeholder="Ex.: notebook, roteador ou home office" required aria-describedby={error ? 'diagnostic-error' : undefined} />
-          </div>
-          <div className="field">
-            <label htmlFor="description">Descrição do problema <span>(opcional)</span></label>
-            <textarea id="description" value={description} onChange={(event) => setDescription(event.target.value)} rows={4} placeholder="Descreva brevemente o que está acontecendo" />
-          </div>
-          {error && <p className="form-error" id="diagnostic-error" role="alert">{error}</p>}
-          <button className="button button-whatsapp" type="submit">{content.submitLabel}</button>
-        </form>
-      </div>
-    </Section>
+        <div className="field">
+          <label htmlFor="equipment">Equipamento ou ambiente</label>
+          <input id="equipment" value={equipment} onChange={(event) => setEquipment(event.target.value)} placeholder="Ex.: notebook, roteador ou home office" required aria-describedby={error ? 'diagnostic-error' : undefined} />
+        </div>
+        <div className="field">
+          <label htmlFor="description">Descrição do problema <span>(opcional)</span></label>
+          <textarea id="description" value={description} onChange={(event) => setDescription(event.target.value)} rows={3} placeholder="Descreva brevemente o que está acontecendo" />
+        </div>
+        {error && <p className="form-error" id="diagnostic-error" role="alert">{error}</p>}
+        <button className="button button-whatsapp" type="submit">{content.submitLabel}</button>
+      </form>
+    </aside>
   )
 }

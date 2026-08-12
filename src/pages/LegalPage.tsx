@@ -22,7 +22,7 @@ export function LegalPage({ kind }: LegalPageProps) {
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="legal-header">
         <div className="container">
-          <a className="legal-brand" href="#inicio" aria-label="Voltar para a página inicial da JB Soluções Tech">
+          <a className="legal-brand" href="#inicio" aria-label="Voltar para a página inicial da JB Soluções">
             <img src={siteConfig.assets.logo} alt={siteConfig.brand.name} width="240" height="56" />
           </a>
           <a href="#inicio">Voltar ao site</a>
@@ -30,7 +30,7 @@ export function LegalPage({ kind }: LegalPageProps) {
       </header>
       <main id="conteudo" className="legal-main">
         <div className="container legal-content">
-          <p className="eyebrow">JB Soluções Tech</p>
+          <p className="eyebrow">JB Soluções</p>
           <h1>{content.title}</h1>
           <p className="legal-intro">{content.intro}</p>
           {content.sections.map((section) => (

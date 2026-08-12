@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { About } from './components/About'
-import { DiagnosticForm } from './components/DiagnosticForm'
 import { Differentials } from './components/Differentials'
 import { FAQ } from './components/FAQ'
 import { FinalCTA } from './components/FinalCTA'
@@ -35,7 +34,6 @@ export function App() {
         <Hero />
         <Problems />
         <Services />
-        {siteConfig.features.diagnostic && <DiagnosticForm />}
         <HowItWorks />
         <Differentials />
         <About />
@@ -44,7 +42,7 @@ export function App() {
         <FinalCTA />
       </main>
       <Footer />
-      <WhatsAppButton label="Falar no WhatsApp" floating origin="floating" />
+      <WhatsAppButton label="Falar pelo WhatsApp" floating origin="floating" />
     </>
   )
 }

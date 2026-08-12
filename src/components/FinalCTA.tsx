@@ -1,4 +1,3 @@
-import { WhatsAppButton } from './WhatsAppButton'
 import { siteConfig } from '../config/site'
 
 export function FinalCTA() {
@@ -7,7 +6,7 @@ export function FinalCTA() {
       <div className="container">
         <h2 id="contato-title">{siteConfig.finalCta.title}</h2>
         <p>{siteConfig.finalCta.description}</p>
-        <WhatsAppButton label={siteConfig.finalCta.action} origin="final-cta" />
+        <a className="button button-primary" href="#diagnostico">{siteConfig.finalCta.action}</a>
       </div>
     </section>
   )

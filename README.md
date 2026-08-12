@@ -1,4 +1,4 @@
-# JB Soluções Tech
+# JB Soluções
 
 Landing page institucional focada em contato pelo WhatsApp.
 

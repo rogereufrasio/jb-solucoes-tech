@@ -1,4 +1,4 @@
-# Identidade visual — JB Soluções Tech
+# Identidade visual — JB Soluções
 
 ## Conceito
 

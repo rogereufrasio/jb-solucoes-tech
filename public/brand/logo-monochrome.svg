@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 84" role="img" aria-labelledby="title">
-  <title id="title">JB Soluções Tech, versão monocromática</title>
+  <title id="title">JB Soluções, versão monocromática</title>
   <rect x="2" y="2" width="80" height="80" rx="21" fill="#111"/>
   <path d="M23 20h10v27c0 10-5 15-15 15V52c4 0 5-2 5-6V20Zm17 0h13c10 0 17 4 17 12 0 5-3 8-7 10 5 2 8 5 8 10 0 9-7 13-18 13H40V20Zm10 9v9h3c5 0 7-2 7-5s-2-4-7-4h-3Zm0 18v9h4c5 0 7-2 7-5s-2-4-7-4h-4Z" fill="#fff"/>
-  <text x="104" y="49" fill="#111" font-family="Arial, sans-serif" font-size="27" font-weight="800">JB Soluções Tech</text>
+  <text x="104" y="49" fill="#111" font-family="Arial, sans-serif" font-size="27" font-weight="800">JB Soluções</text>
 </svg>
